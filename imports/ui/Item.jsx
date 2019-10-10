@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { withTracker } from "meteor/react-meteor-data";
-import { Assignments } from "../api/assignments.js";
+import { Items } from "../api/items.js";
 import { Meteor } from "meteor/meteor";
 import PropTypes from "prop-types";
-import ListAssignments from "./ListAssignments.jsx";
+import ShoppingList from "./ShoppingList.jsx";
 
-const Assignment = (props) => {
+const Item = (props) => {
   const [name, setName] = useState("");
   const [err, setErr] = useState("");
 
@@ -14,7 +14,7 @@ const Assignment = (props) => {
   }
 
   const handleOnPress = (event) => {
-    Meteor.call("assignments.insert", name, (err, res) =>{
+    Meteor.call("items.insert", name, (err, res) =>{
       if (err) {
         setErr(err);
         return;
@@ -25,30 +25,30 @@ const Assignment = (props) => {
 
   return (
     <div>
-      <h1>Create a new Assignment</h1>
+      <h1>Create a new Item</h1>
       <div>
-        <label>Name of Assignment:
-        <input onChange={ohChangeName} type="text" id="name" placeholder="name"/>
+        <label>Name of Item:
+        <input onChange={ohChangeName} type="text" id="name" placeholder="Name"/>
         </label>
       </div>
       <div>
         <button type="button" onClick={handleOnPress}>Create</button>
-        <ListAssignments assignments ={props.assignments}></ListAssignments>
+        <ShoppingList items ={props.items}></ShoppingList>
       </div>
     </div>
   );
 };
 
-Assignment.propTypes = {
-  assignments: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+Item.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
 };
 
 //Lo que sea que retorne el withTracker en el primer parametro solo es lo que va a recibir App como props
-const AssignmentWrapper = withTracker(() => {
-  Meteor.subscribe("assignments");
+const ItemWrapper = withTracker(() => {
+  Meteor.subscribe("items");
   return {
-    assignments: Assignments.find({}).fetch()
+    items: Items.find({}).fetch()
   };
-})(Assignment);
+})(Item);
 
-export default AssignmentWrapper;
+export default ItemWrapper;

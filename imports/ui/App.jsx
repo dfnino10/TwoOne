@@ -1,11 +1,13 @@
 import React from "react";
-import Assignments from "./Assignment.jsx";
+import Item from "./Item.jsx";
 import Navbar from "./NavBar";
+import './App.css';
 
 const App = () => {
   return (
     <div>
       <Navbar></Navbar>
+      <Item></Item>
     </div>
   );
 };
