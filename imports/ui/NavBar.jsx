@@ -1,4 +1,5 @@
 import React from "react";
+import AccountsUIWrapper from "./AccountsUIWrapper";
 
 const NavBar = () => {
   return (
@@ -8,13 +9,10 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a className="navbar-brand" href="#">Bob</a>
-          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
-            </li>
-          </ul>
-          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Sign In</button>
+          <a className="nav-link" href=""><img src={"https://github.com/acbeltrans/acbeltrans.github.io/blob/master/images/icon.png?raw=true"} width="50" height="50" title="Brand image" alt="Navegation link with the image of our app"/></a>
+          <div className="navbar-nav mr-auto mt-2 mt-lg-0">
+          </div>
+          <AccountsUIWrapper></AccountsUIWrapper>
         </div>
       </nav>
     </div>
