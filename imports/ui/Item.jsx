@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { withTracker } from "meteor/react-meteor-data";
 import { Items } from "../api/items.js";
 import { Meteor } from "meteor/meteor";
@@ -8,12 +8,13 @@ import ShoppingList from "./ShoppingList.jsx";
 const Item = (props) => {
   const [name, setName] = useState("");
   const [err, setErr] = useState("");
+  const inRefName = useRef();
 
-  const ohChangeName = (event) => {
-    setName(event.target.value);
+  const onChangeName = (event) => {
+    setName(inRefName.current.value);
   }
 
-  const handleOnPress = (event) => {
+  const handleOnClickCreate = (event) => {
     Meteor.call("items.insert", name, (err, res) =>{
       if (err) {
         setErr(err);
@@ -23,16 +24,45 @@ const Item = (props) => {
     })
   }
 
+  const onKeyPressName = (event) => {
+    if (event.key == "Enter") {
+      Meteor.call("items.insert", name, (err, res) =>{
+      if (err) {
+        setErr(err);
+        return;
+      }
+      console.log("Funcionó :3");
+    })
+    }
+  }
+
+  const handleOnClickDelete = (event) => {
+    Meteor.call("items.remove", name, (err, res) =>{
+      if (err) {
+        setErr(err);
+        return;
+      }
+      console.log("Funcionó delete :3");
+    })
+  }
+
   return (
     <div>
       <h1>Create a new Item</h1>
       <div>
         <label>Name of Item:
-        <input onChange={ohChangeName} type="text" id="name" placeholder="Name"/>
+        <input
+          onChange={onChangeName}
+          ref={inRefName}
+          onKeyPress = {onKeyPressName}
+          type="text"
+          id="name"
+          placeholder="Name"/>
         </label>
       </div>
       <div>
-        <button type="button" onClick={handleOnPress}>Create</button>
+        <button type="button" onClick={handleOnClickCreate}>Create</button>
+        <button type="button" onClick={handleOnClickDelete}>Delete</button>
         <ShoppingList items ={props.items}></ShoppingList>
       </div>
     </div>

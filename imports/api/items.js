@@ -11,13 +11,29 @@ if (Meteor.isServer) {
 
 Meteor.methods({
   "items.insert"(name) {
-    Items.insert({
-        //primer parametro es el query
+    Items.insert(
+      {
+
         name
-      }, {
-        //Lo que voy a modificar
+      },
+      {
         name,
         text: ""
-      });
+      }
+    );
+  },
+  "items.remove"(name) {
+    Items.remove(
+      {
+        name
+      },
+      {
+        name,
+        text: ""
+      }
+    );
+  },
+  "items.updateName"(itemId, setName) {
+    Items.update(itemId, { $set: { name: setName } });
   }
 });
