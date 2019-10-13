@@ -1,15 +1,21 @@
-import { Mongo } from "meteor/mongo";
-import { Meteor } from "meteor/meteor";
+import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
+import { check } from 'meteor/check';
 
-export const Items = new Mongo.Collection("items");
+export const Items = new Mongo.Collection('items');
 
 if (Meteor.isServer) {
-  Meteor.publish("items", () => {
-    return Items.find({});
+  Meteor.publish('items', function itemsPublication() {
+    return Items.find({
+      $or: [
+        { owner: this.userId },
+      ],
+    });
   });
 }
 
 Meteor.methods({
+<<<<<<< HEAD
   "items.insert"(name) {
     Items.insert(
       {
@@ -20,19 +26,41 @@ Meteor.methods({
         text: ""
       }
     );
+=======
+  'items.insert'(text) {
+    check(text, String);
+
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Items.insert({
+      text,
+      createdAt: new Date(),
+      owner: this.userId,
+      username: Meteor.users.findOne(this.userId).username,
+    });
+>>>>>>> 51ada2cd7340c148a6f1c314e029a449a35f4417
   },
-  "items.remove"(name) {
-    Items.remove(
-      {
-        name
-      },
-      {
-        name,
-        text: ""
-      }
-    );
+  'items.remove'(itemId) {
+    check(itemId, String);
+
+    const item = Items.findOne(itemId);
+    if (item.private && item.owner !== this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Items.remove(itemId);
   },
-  "items.updateName"(itemId, setName) {
-    Items.update(itemId, { $set: { name: setName } });
-  }
+  'items.setChecked'(itemId, setChecked) {
+    check(itemId, String);
+    check(setChecked, Boolean);
+
+    const item = Items.findOne(itemId);
+    if (item.private && item.owner !== this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Items.update(itemId, { $set: { checked: setChecked } });
+  },
 });

@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Route from "react-router-dom/Route";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import Home from "./Home.jsx";
-import Item from "./Item.jsx";
+import ShoppingList from "./ShoppingList.jsx";
 import Navbar from "./NavBar";
 import Calendar from "./Calendar";
+import Members from "./Members.jsx";
 import "./App.css";
 
 const App = props => {
@@ -16,8 +16,9 @@ const App = props => {
         <Navbar></Navbar>
         <Router>
           <Route exact path="/" component={Home} />
-          <Route exact path="/Shopping-List" component={Item} />
+          <Route exact path="/Shopping-List" component={ShoppingList} />
           <Route exact path="/Calendar" component={Calendar}></Route>
+          <Route exact path="/Members" component={Members}/>
         </Router>
       </div>
     );
