@@ -8,7 +8,6 @@ if (Meteor.isServer) {
   Meteor.publish('items', function itemsPublication() {
     return Items.find({
       $or: [
-        { private: { $ne: true } },
         { owner: this.userId },
       ],
     });
@@ -50,16 +49,5 @@ Meteor.methods({
     }
 
     Items.update(itemId, { $set: { checked: setChecked } });
-  },
-  'items.setPrivate'(itemId, setToPrivate) {
-    check(itemId, String);
-    check(setToPrivate, Boolean);
-
-    const item = Items.findOne(itemId);
-    if (item.owner !== this.userId) {
-      throw new Meteor.Error('not-authorized');
-    }
-
-    Items.update(itemId, { $set: { private: setToPrivate } });
   },
 });

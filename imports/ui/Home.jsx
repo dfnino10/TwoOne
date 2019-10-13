@@ -5,14 +5,14 @@ import { withTracker } from "meteor/react-meteor-data";
 const Home = (props) => {
   if (props.currentUser) {
     return (
-      <div>
+      <div className="container">
         <h1>Welcome {props.currentUser.username}</h1>
       </div>
     );
   }
   else {
     return (
-      <div>
+      <div className="container">
         <h1>Welcome</h1>
       </div>
     );

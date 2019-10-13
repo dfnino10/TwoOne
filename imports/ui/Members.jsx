@@ -5,7 +5,7 @@ import { withTracker } from "meteor/react-meteor-data";
 const Members = (props) => {
   console.log(props.users)
   return (
-    <div className="Members">
+    <div className="container">
       {props.users.map(u => (
         <div key={u._id}>
           {u.username}
