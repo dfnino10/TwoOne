@@ -13,7 +13,6 @@ Meteor.methods({
   "items.insert"(name) {
     Items.insert(
       {
-
         name
       },
       {
