@@ -1,39 +1,65 @@
-import { Mongo } from "meteor/mongo";
-import { Meteor } from "meteor/meteor";
+import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
+import { check } from 'meteor/check';
 
-export const Items = new Mongo.Collection("items");
+export const Items = new Mongo.Collection('items');
 
 if (Meteor.isServer) {
-  Meteor.publish("items", () => {
-    return Items.find({});
+  Meteor.publish('items', function itemsPublication() {
+    return Items.find({
+      $or: [
+        { private: { $ne: true } },
+        { owner: this.userId },
+      ],
+    });
   });
 }
 
 Meteor.methods({
-  "items.insert"(name) {
-    Items.insert(
-      {
+  'items.insert'(text) {
+    check(text, String);
 
-        name
-      },
-      {
-        name,
-        text: ""
-      }
-    );
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Items.insert({
+      text,
+      createdAt: new Date(),
+      owner: this.userId,
+      username: Meteor.users.findOne(this.userId).username,
+    });
   },
-  "items.remove"(name) {
-    Items.remove(
-      {
-        name
-      },
-      {
-        name,
-        text: ""
-      }
-    );
+  'items.remove'(itemId) {
+    check(itemId, String);
+
+    const item = Items.findOne(itemId);
+    if (item.private && item.owner !== this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Items.remove(itemId);
   },
-  "items.updateName"(itemId, setName) {
-    Items.update(itemId, { $set: { name: setName } });
-  }
+  'items.setChecked'(itemId, setChecked) {
+    check(itemId, String);
+    check(setChecked, Boolean);
+
+    const item = Items.findOne(itemId);
+    if (item.private && item.owner !== this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Items.update(itemId, { $set: { checked: setChecked } });
+  },
+  'items.setPrivate'(itemId, setToPrivate) {
+    check(itemId, String);
+    check(setToPrivate, Boolean);
+
+    const item = Items.findOne(itemId);
+    if (item.owner !== this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Items.update(itemId, { $set: { private: setToPrivate } });
+  },
 });
