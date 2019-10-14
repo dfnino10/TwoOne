@@ -2,7 +2,7 @@ import React from "react";
 import AccountsUIWrapper from "./AccountsUIWrapper.jsx";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
-import icon from "../public/icon.png";
+import icon from "../images/icon.png";
 import "./NavBar.css";
 
 const NavBar = props => {
