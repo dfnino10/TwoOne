@@ -1,8 +1,8 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
-import HomeCalendar from "./Home-Calendar";
-import HomeItems from "./Home-Items";
+import HomeCalendar from "./Home-Calendar.jsx";
+import HomeItems from "./Home-Items.jsx";
 import front from "../public/mainFront.png";
 import calendar from "../public/calendar.png";
 import list from "../public/list.png";

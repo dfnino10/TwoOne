@@ -4,21 +4,21 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 
-import { Meteor } from "meteor/meteor";
-
 // must manually import the stylesheets for each plugin
 import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import "./Home-Calendar.css";
 
-export default class HomeCalendar extends React.Component {
-  calendarComponentRef = React.createRef();
-
-  state = {
-    calendarWeekends: true,
-    calendarEvents: []
-  };
+class HomeCalendar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.calendarComponentRef = React.createRef();
+    this.state = {
+      calendarWeekends: true,
+      calendarEvents: []
+    };
+  }
 
   render() {
     return (
@@ -45,9 +45,13 @@ export default class HomeCalendar extends React.Component {
     );
   }
 
-  handleDateClick = arg => {
-    if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-      this.setState({});
-    }
-  };
+  handleDateClick() {
+    arg => {
+      if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
+        this.setState({});
+      }
+    };
+  }
 }
+
+export default HomeCalendar;

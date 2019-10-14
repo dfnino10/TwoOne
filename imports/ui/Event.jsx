@@ -1,6 +1,6 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
-import { Events } from "../api/events.js";
+import PropTypes from "prop-types";
 
 const Event = props => {
   const deleteThisEvent = () => {
@@ -18,6 +18,10 @@ const Event = props => {
       </button>
     </li>
   );
+};
+
+Event.propTypes = {
+  event: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
 };
 
 export default Event;

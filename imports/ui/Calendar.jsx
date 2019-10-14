@@ -2,11 +2,7 @@ import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import Footer from "./Footer.jsx";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
-
-import { Meteor } from "meteor/meteor";
-import EventList from "./EventList";
 
 // must manually import the stylesheets for each plugin
 import "@fullcalendar/core/main.css";
@@ -15,12 +11,14 @@ import "@fullcalendar/timegrid/main.css";
 import "./Calendar.css";
 
 export default class Calendar extends React.Component {
-  calendarComponentRef = React.createRef();
-
-  state = {
-    calendarWeekends: true,
-    calendarEvents: []
-  };
+  constructor(props) {
+    super(props);
+    this.calendarComponentRef = React.createRef();
+    this.state = {
+      calendarWeekends: true,
+      calendarEvents: []
+    };
+  }
 
   render() {
     return (
@@ -49,8 +47,11 @@ export default class Calendar extends React.Component {
     );
   }
 
-  handleDateClick = arg => {
-    if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-    }
-  };
+  handleDateClick() {
+    arg => {
+      if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
+        this.setState({});
+      }
+    };
+  }
 }

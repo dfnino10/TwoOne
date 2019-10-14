@@ -1,5 +1,5 @@
 import React from "react";
-/* import monster from "../images/monster.png"; */
+import monster from "../public/monster.png";
 import "./Mistake.css";
 
 const Mistake = () => {
@@ -7,7 +7,7 @@ const Mistake = () => {
     <div className="container">
       <img
         className="imgMistake"
-        src=""
+        src={monster}
         alt="Image of a monster in black and white with his tongue hanging out"
       />
       <h1 className="txtMistake">¡Ups! Wrong place</h1>

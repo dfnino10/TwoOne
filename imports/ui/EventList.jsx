@@ -12,7 +12,6 @@ const EventList = props => {
   const inRefStart = useRef();
   const [end, setEnd] = useState("");
   const inRefEnd = useRef();
-  const currentUserId = props.currentUser && props.currentUser._id;
 
   const onChangeTitle = () => {
     setTitle(inRefTitle.current.value);
