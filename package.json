@@ -1,6 +1,10 @@
 {
   "name": "TwoOne",
   "private": true,
+  "engines": {
+    "node": "4.8.x",
+    "npm": "3.x"
+  },
   "scripts": {
     "start": "meteor run && npm install",
     "test": "meteor test --once --driver-package meteortesting:mocha",
