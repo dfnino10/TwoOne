@@ -39,7 +39,7 @@ export default class Calendar extends React.Component {
   render() {
     return (
       <div className="mx-auto">
-        <h3>If you want to add an event do a click on the day of the event</h3>
+        <h3 className="titleG">If you want to add an event do a click on the day of the event</h3>
         <div className="calendar mt-5 mx-auto">
           <FullCalendar
             defaultView="dayGridMonth"

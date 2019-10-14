@@ -1,5 +1,5 @@
 {
-  "name": "Proyecto3",
+  "name": "TwoOne",
   "private": true,
   "scripts": {
     "start": "meteor run",

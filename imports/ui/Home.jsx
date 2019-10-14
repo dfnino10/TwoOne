@@ -18,10 +18,10 @@ const Home = props => {
   if (props.currentUser) {
     return (
       <div className="container">
-        <h1>Welcome {props.currentUser.username}</h1>
+        <h1 className="mainTitle">Welcome {props.currentUser.username}</h1>
         <HomeCalendar userName={props.currentUser.username}></HomeCalendar>
         <div className="float-left ml-3">
-          <h3>Don't forgget what is in your shopping list</h3>
+          <h3 className="otherMainTitle">Don't forgget what is in your shopping list</h3>
           <HomeItems></HomeItems>
         </div>
       </div>
