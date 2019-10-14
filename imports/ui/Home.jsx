@@ -4,6 +4,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import HomeCalendar from "./Home-Calendar";
 import ShoppingList from "./ShoppingList";
 import HomeItems from "./Home-Items";
+import Footer from "./Footer.jsx";
 import front from "../images/mainFront.png";
 import calendar from "../images/calendar.png";
 import list from "../images/list.png";
