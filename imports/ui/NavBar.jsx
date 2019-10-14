@@ -12,6 +12,7 @@ const NavBar = props => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a href="/">
             <img
+              className="icon"
               src={icon}
               width="55"
               height="55"
@@ -66,6 +67,7 @@ const NavBar = props => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a href="/">
             <img
+              className="icon"
               src={icon}
               width="55"
               height="55"

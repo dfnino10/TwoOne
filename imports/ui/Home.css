@@ -45,13 +45,13 @@
 }
 
 .images {
-  transform: translate(-40%, -50%);
-  margin: 200px 0px 0px 0px;
+  left: 10%;
+  margin: 100px 0px 0px 0px;
 }
 
 .divText {
   right: 1.5%;
-  margin: 20px 0px 0px 0px;
+  margin: 20px 0px 80px 0px;
 }
 
 .minortext {
