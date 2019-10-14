@@ -1,0 +1,15 @@
+.imgMistake {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.txtMistake {
+  text-align: center;
+}
+
+.refMistake {
+  text-align: right;
+  font-size: 10px;
+}

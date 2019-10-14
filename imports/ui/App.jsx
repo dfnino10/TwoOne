@@ -7,6 +7,7 @@ import ShoppingList from "./ShoppingList.jsx";
 import Navbar from "./NavBar";
 import Calendar from "./Calendar";
 import Members from "./Members.jsx";
+import Mistake from "./Mistake.jsx";
 import "./App.css";
 
 const App = props => {
@@ -28,6 +29,9 @@ const App = props => {
         <Navbar></Navbar>
         <Router>
           <Route exact path="/" component={Home} />
+          <Route exact path="/Shopping-List" component={Mistake} />
+          <Route exact path="/Calendar" component={Mistake}></Route>
+          <Route exact path="/Members" component={Mistake}/>
         </Router>
       </div>
     );
