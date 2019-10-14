@@ -2,6 +2,7 @@ import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import Footer from "./Footer.jsx";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 
 import { Meteor } from "meteor/meteor";

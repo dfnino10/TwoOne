@@ -2,6 +2,7 @@ import React from "react";
 import { Meteor } from "meteor/meteor";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
+import Footer from "./Footer.jsx";
 
 const Members = (props) => {
   console.log(props.users)

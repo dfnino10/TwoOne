@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import { Items } from "../api/items.js";
+import Footer from "./Footer.jsx";
 import Item from "./Item.jsx";
 
 const ShoppingList = (props) => {
