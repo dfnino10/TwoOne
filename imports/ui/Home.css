@@ -1,0 +1,65 @@
+.imgMainFront {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 500px;
+}
+
+.title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Libre Baskerville', serif;
+}
+
+.title1 {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Libre Baskerville', serif;
+}
+
+.subtitle {
+  position: absolute;
+  top: 55%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.othertitle {
+  position: absolute;
+  top: 65%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.some {
+  color: #00A878;
+  font-weight: bold;
+}
+
+.images {
+  transform: translate(-40%, -50%);
+  margin: 200px 0px 0px 0px;
+}
+
+.divText {
+  right: 1.5%;
+  margin: 20px 0px 0px 0px;
+}
+
+.minortext {
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+}
+
+.other {
+  background-color: #DAEFB3;
+}

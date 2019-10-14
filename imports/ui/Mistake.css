@@ -1,15 +1,18 @@
 .imgMistake {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
 }
 
 .txtMistake {
   text-align: center;
+  left: 40%;
 }
 
 .refMistake {
   text-align: right;
+  transform: translateY(4.5in);
   font-size: 10px;
 }

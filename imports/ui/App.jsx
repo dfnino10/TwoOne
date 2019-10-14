@@ -34,6 +34,7 @@ const App = props => {
           <Route exact path="/Shopping-List" component={Mistake} />
           <Route exact path="/Calendar" component={Mistake}></Route>
           <Route exact path="/Members" component={Mistake}/>
+          <Route exact path="/Event-List" component={Mistake} />
         </Router>
       </div>
     );

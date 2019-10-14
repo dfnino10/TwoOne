@@ -2,7 +2,7 @@ import React from "react";
 import AccountsUIWrapper from "./AccountsUIWrapper.jsx";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
-import icon from "../public/icon.png";
+import icon from "../images/icon.png";
 import "./NavBar.css";
 
 const NavBar = props => {
@@ -10,11 +10,11 @@ const NavBar = props => {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">
+          <a href="/">
             <img
               src={icon}
-              width="50"
-              height="50"
+              width="55"
+              height="55"
               title="Brand image"
               alt="Navegation link with the icon of our app"
             />
@@ -64,11 +64,11 @@ const NavBar = props => {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="nav-link" href="">
+          <a href="/">
             <img
               src={icon}
-              width="50"
-              height="50"
+              width="55"
+              height="55"
               title="Brand image"
               alt="Navegation link with the icon of our app"
             />
