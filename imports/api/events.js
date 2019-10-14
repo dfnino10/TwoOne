@@ -11,11 +11,15 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  "events.insert"(text) {
-    check(text, String);
+  "events.insert"(title, start, end) {
+    check(title, String);
+    check(start, Date);
+    check(end, Date);
 
     Events.insert({
-      text,
+      title,
+      start: new Date(),
+      end: new Date(),
       createdAt: new Date(),
       owner: this.userId,
       username: Meteor.users.findOne(this.userId).username
@@ -25,5 +29,5 @@ Meteor.methods({
     check(eventId, String);
 
     Events.remove(eventId);
-  },
+  }
 });

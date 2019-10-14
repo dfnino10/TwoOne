@@ -1,54 +1,93 @@
 import React, { useState, useRef } from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import { Events } from "../api/events.js";
 import Event from "./Event.jsx";
 
-const EventList = (props) => {
-  const [text, setText] = useState("");
-  const inRefText = useRef();
+const EventList = props => {
+  const [title, setTitle] = useState("");
+  const inRefTitle = useRef();
+  const [start, setStart] = useState("");
+  const inRefStart = useRef();
+  const [end, setEnd] = useState("");
+  const inRefEnd = useRef();
   const currentUserId = props.currentUser && props.currentUser._id;
 
-  const onChangeText = () => {
-    setText(inRefText.current.value);
-  }
+  const onChangeTitle = () => {
+    setTitle(inRefTitle.current.value);
+  };
 
-  const handleSubmit = (event) => {
+  const onChangeStart = () => {
+    setStart(inRefStart.current.value);
+  };
+
+  const onChangeEnd = () => {
+    setEnd(inRefEnd.current.value);
+  };
+
+  const handleSubmit = event => {
     event.preventDefault();
-    Meteor.call("events.insert", text);
-    setText("");
-  }
+    Meteor.call("events.insert", title, start, end);
+    setTitle("");
+    setStart("");
+    setEnd("");
+  };
 
   const renderEvents = props.events.map(function(event) {
-    return (
-      <Event
-        key={event._id}
-        event={event}
-      />
-    );
+    return <Event key={event._id} event={event} />;
   });
 
   return (
     <div className="container">
       <header>
         <h1>Add an Event</h1>
-
-        <form className="new-event" onSubmit={handleSubmit}>
-          <input
-            onChange={onChangeText}
-            type="text"
-            ref={inRefText}
-            placeholder="Create a new event"
-          />
+        <form>
+          <div className="form-group">
+            <label>
+              Title of the event
+              <input
+                className="form-control"
+                onChange={onChangeTitle}
+                type="title"
+                ref={inRefTitle}
+                placeholder="Title for the event"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              Start of the event
+              <input
+                className="form-control"
+                onChange={onChangeStart}
+                type="date"
+                ref={inRefStart}
+                placeholder="yyyy-mm-dd"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              End of the event
+              <input
+                className="form-control"
+                onChange={onChangeEnd}
+                type="date"
+                ref={inRefEnd}
+                placeholder="yyyy-mm-dd"
+              />
+            </label>
+          </div>
         </form>
+        <button className="btn btn-success" onClick={handleSubmit}>
+          Add event
+        </button>
       </header>
-
       <ul>{renderEvents}</ul>
     </div>
   );
-}
+};
 
 EventList.propTypes = {
   events: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
