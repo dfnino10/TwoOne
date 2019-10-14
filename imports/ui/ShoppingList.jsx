@@ -8,34 +8,29 @@ import Footer from "./Footer.jsx";
 import Item from "./Item.jsx";
 import "./ShoppingList.css";
 
-const ShoppingList = (props) => {
+const ShoppingList = props => {
   const [text, setText] = useState("");
   const inRefText = useRef();
   const currentUserId = props.currentUser && props.currentUser._id;
 
   const onChangeText = () => {
     setText(inRefText.current.value);
-  }
+  };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     Meteor.call("items.insert", text);
     setText("");
-  }
+  };
 
   const renderItems = props.items.map(function(item) {
-    return (
-      <Item
-        key={item._id}
-        item={item}
-      />
-    );
+    return <Item key={item._id} item={item} />;
   });
 
   return (
     <div className="container containerSL">
       <header>
-        <h1 className ="titleShopping">Shopping List</h1>
+        <h1 className="titleShopping">Shopping List</h1>
 
         <form className="new-item" onSubmit={handleSubmit}>
           <input
@@ -50,7 +45,7 @@ const ShoppingList = (props) => {
       <ul className="list">{renderItems}</ul>
     </div>
   );
-}
+};
 
 ShoppingList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired

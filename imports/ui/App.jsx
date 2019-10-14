@@ -10,7 +10,7 @@ import Calendar from "./Calendar";
 import Profile from "./Profile.jsx";
 import Footer from "./Footer.jsx";
 
-const App = (props) => {
+const App = props => {
   if (props.currentUser) {
     return (
       <div>
@@ -18,7 +18,7 @@ const App = (props) => {
         <Router>
           <Route exact path="/" component={Home} />
           <Route exact path="/Shopping-List" component={ShoppingList} />
-          <Route exact path="/Calendar" component={Calendar}/>
+          <Route exact path="/Calendar" component={Calendar} />
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/Event-List" component={EventList} />
         </Router>
@@ -31,7 +31,7 @@ const App = (props) => {
         <Router>
           <Route exact path="/" component={Home} />
           <Route exact path="/Shopping-List" component={Home} />
-          <Route exact path="/Calendar" component={Home}/>
+          <Route exact path="/Calendar" component={Home} />
           <Route exact path="/Profile" component={Home} />
           <Route exact path="/Event-List" component={Home} />
         </Router>
