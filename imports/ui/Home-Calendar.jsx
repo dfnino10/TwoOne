@@ -5,15 +5,14 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 
 import { Meteor } from "meteor/meteor";
-import EventList from "./EventList";
 
 // must manually import the stylesheets for each plugin
 import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
-import "./Calendar.css";
+import "./Home-Calendar.css";
 
-export default class Calendar extends React.Component {
+export default class HomeCalendar extends React.Component {
   calendarComponentRef = React.createRef();
 
   state = {
@@ -23,19 +22,10 @@ export default class Calendar extends React.Component {
 
   render() {
     return (
-      <div className="mx-auto">
-        <h3>If you want to add an event do a click on the day of the event</h3>
-        <div className="">
-          <button className="btn btn-dark" onClick={this.toggleWeekends}>
-            Toggle weekends
-          </button>
-          &nbsp;
-          <button className="btn btn-primary" onClick={this.gotoPast}>
-            Go to a date in the past
-          </button>
-          &nbsp; (also, click a date/time to add an event)
-        </div>
-        <div className="calendar mt-5 mx-auto">
+      <div className="mx-auto mb-5">
+        <h3>Check out your events now!</h3>
+        <div className="calendar">
+          <h2 className="text-center mb-3">{this.props.userName} Calendar</h2>
           <FullCalendar
             defaultView="dayGridMonth"
             header={{
@@ -51,34 +41,13 @@ export default class Calendar extends React.Component {
             navLinks={true}
           />
         </div>
-        <a className="btn btn-success" href="Event-List">
-          Add event
-        </a>
       </div>
     );
   }
 
-  toggleWeekends = () => {
-    this.setState({
-      // update a property
-      calendarWeekends: !this.state.calendarWeekends
-    });
-  };
-
-  gotoPast = () => {
-    let calendarApi = this.calendarComponentRef.current.getApi();
-    calendarApi.gotoDate("2000-01-01"); // call a method on the Calendar object
-  };
-
-  renderEvents() {
-    return this.state.calendarEvents.map(function(event) {
-      <Event key={event._id} event={event} />;
-    });
-  }
-
   handleDateClick = arg => {
     if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-      this.renderEvents;
+      this.setState({});
     }
   };
 }
