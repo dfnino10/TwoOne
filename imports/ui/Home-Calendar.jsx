@@ -23,9 +23,9 @@ class HomeCalendar extends React.Component {
   render() {
     return (
       <div className="mx-auto mb-5">
-        <h3 className="titeC">Check out your events now!</h3>
+        <h3 className="titleC">Check out your events now!</h3>
         <div className="homeCalendar">
-          <h2 className="text-center mb-3 titeC">{this.props.userName} Calendar</h2>
+          <h2 className="text-center mb-3 titleC">{this.props.userName} Calendar</h2>
           <FullCalendar
             defaultView="dayGridMonth"
             header={{

@@ -2,3 +2,8 @@
   width: 50%;
   height: 50%;
 }
+
+.titleG {
+  font-family: 'Libre Baskerville', serif;
+  transform: translate(10%, 0%);
+}
