@@ -52,11 +52,11 @@ Accounts.ui.config({
         data: [{
             id: 1,
             label: 'Colombia',
-            value: 'es'
+            value: 'Colombia'
           }, {
             id: 2,
             label: 'Spain',
-            value: 'es',
+            value: 'Spain',
         }],
         visible: true
     }, {

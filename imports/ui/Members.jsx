@@ -26,8 +26,7 @@ Members.propTypes = {
 
 const MembersWrapper = withTracker(() => {
   return {
-    users: Meteor.users.find({}).fetch(),
-    currentUser: Meteor.user()
+    users: Meteor.users.find({}).fetch()
   };
 })(Members);
 
