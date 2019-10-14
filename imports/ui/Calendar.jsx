@@ -16,7 +16,23 @@ export default class Calendar extends React.Component {
     this.calendarComponentRef = React.createRef();
     this.state = {
       calendarWeekends: true,
-      calendarEvents: []
+      calendarEvents: [
+        {
+          title: "Recital",
+          start: "2019-10-15",
+          end: "2019-10-15"
+        },
+        {
+          title: "Reunion padres de familia",
+          start: "2019-10-20",
+          end: "2019-10-20"
+        },
+        {
+          title: "Viaje familiar",
+          start: "2019-10-25",
+          end: "2019-10-27"
+        }
+      ]
     };
   }
 
