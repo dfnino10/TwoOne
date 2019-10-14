@@ -95,8 +95,7 @@ EventList.propTypes = {
 const EventListWrapper = withTracker(() => {
   Meteor.subscribe("events");
   return {
-    events: Events.find({}).fetch(),
-    currentUser: Meteor.user()
+    events: Events.find({}).fetch()
   };
 })(EventList);
 

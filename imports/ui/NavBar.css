@@ -1,3 +1,7 @@
 .navbar {
   background-color: #FFFFFF !important;
 }
+
+.nav-link {
+  font-family: 'Libre Baskerville', serif;
+}

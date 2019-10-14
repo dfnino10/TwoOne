@@ -2,7 +2,7 @@ import React from "react";
 import AccountsUIWrapper from "./AccountsUIWrapper.jsx";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
-import icon from "../public/icon.png";
+import icon from "../images/icon.png";
 import "./NavBar.css";
 
 const NavBar = props => {
@@ -34,8 +34,8 @@ const NavBar = props => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="Members">
-                  Members
+                <a className="nav-link" href="Profile">
+                  Profile
                 </a>
               </li>
               <li className="nav-item">

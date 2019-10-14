@@ -1,0 +1,17 @@
+.profileImage {
+  transform: translate(130%, 0%);
+}
+
+.profile {
+  transform: translate(270%, 15%);
+}
+
+.profileText {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+}
+
+.profileTitle {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 30px;
+}

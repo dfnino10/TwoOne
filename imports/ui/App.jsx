@@ -4,15 +4,13 @@ import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import Home from "./Home.jsx";
 import ShoppingList from "./ShoppingList.jsx";
-import EventList from "./EventList.jsx";
-import Navbar from "./NavBar.jsx";
-import Calendar from "./Calendar.jsx";
-import Members from "./Members.jsx";
-import Mistake from "./Mistake.jsx";
+import EventList from "./EventList";
+import Navbar from "./NavBar";
+import Calendar from "./Calendar";
+import Profile from "./Profile.jsx";
 import Footer from "./Footer.jsx";
-import "./App.css";
 
-const App = props => {
+const App = (props) => {
   if (props.currentUser) {
     return (
       <div>
@@ -20,13 +18,10 @@ const App = props => {
         <Router>
           <Route exact path="/" component={Home} />
           <Route exact path="/Shopping-List" component={ShoppingList} />
-          <Route exact path="/Calendar" component={Calendar}></Route>
-          <Route exact path="/Members" component={Members} />
-          <Route exact path="/Tasks" component={EventList} />
+          <Route exact path="/Calendar" component={Calendar}/>
+          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/Event-List" component={EventList} />
         </Router>
-        <div className="fixed-bottom mt-5">
-          <Footer></Footer>
-        </div>
       </div>
     );
   } else {
@@ -35,10 +30,10 @@ const App = props => {
         <Navbar></Navbar>
         <Router>
           <Route exact path="/" component={Home} />
-          <Route exact path="/Shopping-List" component={Mistake} />
-          <Route exact path="/Calendar" component={Mistake}></Route>
-          <Route exact path="/Members" component={Mistake} />
-          <Route exact path="/Tasks" component={Mistake} />
+          <Route exact path="/Shopping-List" component={Home} />
+          <Route exact path="/Calendar" component={Home}/>
+          <Route exact path="/Profile" component={Home} />
+          <Route exact path="/Event-List" component={Home} />
         </Router>
         <Footer></Footer>
       </div>

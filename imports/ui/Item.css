@@ -1,0 +1,12 @@
+.text {
+  padding-right: 90px;
+}
+
+.delete {
+  background-color: #00A878;
+  color: white;
+}
+
+.checkbox {
+  font-family: 'Source Sans Pro', sans-serif;
+}

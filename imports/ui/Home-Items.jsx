@@ -24,8 +24,7 @@ ItemsList.propTypes = {
 const ItemsListWrapper = withTracker(() => {
   Meteor.subscribe("items");
   return {
-    items: Items.find({}).fetch(),
-    currentUser: Meteor.user()
+    items: Items.find({}).fetch()
   };
 })(ItemsList);
 
