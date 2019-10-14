@@ -9,6 +9,7 @@ import Navbar from "./NavBar";
 import Calendar from "./Calendar";
 import Members from "./Members.jsx";
 import Mistake from "./Mistake.jsx";
+import Footer from "./Footer.jsx";
 import "./App.css";
 
 const App = props => {
@@ -23,6 +24,7 @@ const App = props => {
           <Route exact path="/Members" component={Members} />
           <Route exact path="/Event-List" component={EventList} />
         </Router>
+        <Footer></Footer>
       </div>
     );
   } else {
@@ -36,6 +38,7 @@ const App = props => {
           <Route exact path="/Members" component={Mistake}/>
           <Route exact path="/Event-List" component={Mistake} />
         </Router>
+        <Footer></Footer>
       </div>
     );
   }
