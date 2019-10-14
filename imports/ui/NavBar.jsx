@@ -44,8 +44,8 @@ const NavBar = props => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="Tasks">
-                  Tasks
+                <a className="nav-link" href="Event-List">
+                  Events
                 </a>
               </li>
               <li className="nav-item">

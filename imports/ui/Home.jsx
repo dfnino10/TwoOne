@@ -34,11 +34,14 @@ const Home = props => {
           src={front}
           alt="Image with green leaves"
         />
+        <h1 className="title2">
+          <span className="some">Two One</span>
+        </h1>
         <h1 className="title">
-          Time spent with <span className="some">family</span> is worth
+          Because spending time with your
         </h1>
         <br />
-        <h1 className="title1">every second</h1>
+        <h1 className="title1"><span className="some">family</span> is worth every second</h1>
         <br />
         <h2 className="subtitle">Spent more time living...</h2>
         <h2 className="othertitle">... And less time organizing</h2>
