@@ -1,15 +1,14 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
-import classnames from "classnames";
-import { Events } from "../api/calendarEvents";
+import { Events } from "../api/events.js";
 
 const Event = props => {
   const deleteThisEvent = () => {
-    Meteor.call("calendarEvents.remove", props.event._id);
+    Meteor.call("events.remove", props.event._id);
   };
 
   return (
-    <li className={eventClassName}>
+    <li>
       <span className="text">{props.event.text}</span>
 
       <button className="delete" onClick={deleteThisEvent}>

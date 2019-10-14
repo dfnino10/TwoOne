@@ -3,33 +3,39 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
-import { Events } from "../api/calendarEvents";
+import { Events } from "../api/events.js";
 import Event from "./Event.jsx";
 
-const EventList = props => {
+const EventList = (props) => {
   const [text, setText] = useState("");
   const inRefText = useRef();
   const currentUserId = props.currentUser && props.currentUser._id;
 
   const onChangeText = () => {
     setText(inRefText.current.value);
-  };
+  }
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    Meteor.call("calendarEvents.insert", text);
+    Meteor.call("events.insert", text);
     setText("");
-  };
+  }
 
   const renderEvents = props.events.map(function(event) {
-    return <Event key={event._id} event={event} />;
+    return (
+      <Event
+        key={event._id}
+        event={event}
+      />
+    );
   });
 
   return (
-    <div>
+    <div className="container">
       <header>
         <h1>Add an Event</h1>
-        <form onSubmit={handleSubmit}>
+
+        <form className="new-event" onSubmit={handleSubmit}>
           <input
             onChange={onChangeText}
             type="text"
@@ -38,10 +44,11 @@ const EventList = props => {
           />
         </form>
       </header>
+
       <ul>{renderEvents}</ul>
     </div>
   );
-};
+}
 
 EventList.propTypes = {
   events: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired

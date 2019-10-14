@@ -16,7 +16,7 @@ const NavBar = props => {
               width="50"
               height="50"
               title="Brand image"
-              alt="Navegation link with the image of our app"
+              alt="Navegation link with the icon of our app"
             />
           </a>
           <button
@@ -53,7 +53,7 @@ const NavBar = props => {
                 </a>
               </li>
             </ul>
-            <div className="mx-auto">
+            <div className="mr-5 pr-5">
               <AccountsUIWrapper></AccountsUIWrapper>
             </div>
           </div>
@@ -70,7 +70,7 @@ const NavBar = props => {
               width="50"
               height="50"
               title="Brand image"
-              alt="Navegation link with the image of our app"
+              alt="Navegation link with the icon of our app"
             />
           </a>
           <button
@@ -86,7 +86,7 @@ const NavBar = props => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <div className="navbar-nav mr-auto mt-2 mt-lg-0"></div>
-            <div className="mx-auto">
+            <div className="mr-5 pr-5">
               <AccountsUIWrapper></AccountsUIWrapper>
             </div>
           </div>
