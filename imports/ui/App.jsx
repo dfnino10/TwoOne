@@ -4,9 +4,9 @@ import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import Home from "./Home.jsx";
 import ShoppingList from "./ShoppingList.jsx";
-import EventList from "./EventList";
-import Navbar from "./NavBar";
-import Calendar from "./Calendar";
+import EventList from "./EventList.jsx";
+import Navbar from "./NavBar.jsx";
+import Calendar from "./Calendar.jsx";
 import Profile from "./Profile.jsx";
 import Footer from "./Footer.jsx";
 
