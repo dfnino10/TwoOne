@@ -15,18 +15,6 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-<<<<<<< HEAD
-  "items.insert"(name) {
-    Items.insert(
-      {
-        name
-      },
-      {
-        name,
-        text: ""
-      }
-    );
-=======
   'items.insert'(text) {
     check(text, String);
 
@@ -40,7 +28,6 @@ Meteor.methods({
       owner: this.userId,
       username: Meteor.users.findOne(this.userId).username,
     });
->>>>>>> 51ada2cd7340c148a6f1c314e029a449a35f4417
   },
   'items.remove'(itemId) {
     check(itemId, String);

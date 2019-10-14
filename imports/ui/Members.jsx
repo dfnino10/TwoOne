@@ -1,5 +1,6 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
+import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 
 const Members = (props) => {
@@ -9,14 +10,25 @@ const Members = (props) => {
       {props.users.map(u => (
         <div key={u._id}>
           {u.username}
+          {u.profile.name}
+          {u.profile.surname}
+          {u.profile.gender}
+          {u.profile.country}
         </div>
       ))}
     </div>
   );
 };
 
-export default withTracker(() => {
+Members.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+};
+
+const MembersWrapper = withTracker(() => {
   return {
-    users: Meteor.users.find({}).fetch()
+    users: Meteor.users.find({}).fetch(),
+    currentUser: Meteor.user()
   };
 })(Members);
+
+export default MembersWrapper;
