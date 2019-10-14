@@ -25,16 +25,6 @@ export default class Calendar extends React.Component {
     return (
       <div className="mx-auto">
         <h3>If you want to add an event do a click on the day of the event</h3>
-        <div className="">
-          <button className="btn btn-dark" onClick={this.toggleWeekends}>
-            Toggle weekends
-          </button>
-          &nbsp;
-          <button className="btn btn-primary" onClick={this.gotoPast}>
-            Go to a date in the past
-          </button>
-          &nbsp; (also, click a date/time to add an event)
-        </div>
         <div className="calendar mt-5 mx-auto">
           <FullCalendar
             defaultView="dayGridMonth"
@@ -50,35 +40,16 @@ export default class Calendar extends React.Component {
             dateClick={this.handleDateClick}
             navLinks={true}
           />
+          <a className="btn btn-success" href="Event-List">
+            Add event
+          </a>
         </div>
-        <a className="btn btn-success" href="Event-List">
-          Add event
-        </a>
       </div>
     );
   }
 
-  toggleWeekends = () => {
-    this.setState({
-      // update a property
-      calendarWeekends: !this.state.calendarWeekends
-    });
-  };
-
-  gotoPast = () => {
-    let calendarApi = this.calendarComponentRef.current.getApi();
-    calendarApi.gotoDate("2000-01-01"); // call a method on the Calendar object
-  };
-
-  renderEvents() {
-    return this.state.calendarEvents.map(function(event) {
-      <Event key={event._id} event={event} />;
-    });
-  }
-
   handleDateClick = arg => {
     if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-      this.renderEvents;
     }
   };
 }
