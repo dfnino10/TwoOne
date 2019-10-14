@@ -2,8 +2,8 @@
   "name": "TwoOne",
   "private": true,
   "engines": {
-    "node": "4.8.x",
-    "npm": "3.x"
+    "node": "v10.16.3",
+    "npm": "6.9.0"
   },
   "scripts": {
     "start": "meteor run && npm install",
