@@ -4,6 +4,7 @@ import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import Home from "./Home.jsx";
 import ShoppingList from "./ShoppingList.jsx";
+import EventList from "./EventList";
 import Navbar from "./NavBar";
 import Calendar from "./Calendar";
 import Members from "./Members.jsx";
@@ -18,7 +19,8 @@ const App = props => {
           <Route exact path="/" component={Home} />
           <Route exact path="/Shopping-List" component={ShoppingList} />
           <Route exact path="/Calendar" component={Calendar}></Route>
-          <Route exact path="/Members" component={Members}/>
+          <Route exact path="/Members" component={Members} />
+          <Route exact path="/Event-List" component={EventList} />
         </Router>
       </div>
     );
