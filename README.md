@@ -57,3 +57,9 @@ https://github.com/acbeltrans
 
 # License 
 The MIT license can be found in the following link: https://github.com/acbeltrans/TwoOne/blob/master/LICENSE
+
+# Code review
+Usan bien react-router
+Hacen buena distribución de responsabilidades en diferentes archivos 
+La página es accesible y amigable a la vista. Es intuitiva
+Se nota el trabajo y el esfuerzo puesto en la aplicación.
